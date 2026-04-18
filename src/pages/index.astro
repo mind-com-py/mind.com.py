@@ -1,54 +1,514 @@
 ---
+const services = [
+  {
+    title: "Desarrollo Web",
+    description: "Aplicaciones web modernas, rápidas y escalables construidas con tecnologías de última generación.",
+  },
+  {
+    title: "Aplicaciones Móviles",
+    description: "Experiencias nativas e híbridas para iOS y Android, diseñadas para crecer con tu producto.",
+  },
+  {
+    title: "Cloud & DevOps",
+    description: "Infraestructura en la nube confiable, automatización y despliegue continuo end-to-end.",
+  },
+  {
+    title: "Consultoría Técnica",
+    description: "Acompañamos a tu equipo en decisiones de arquitectura, producto y transformación digital.",
+  },
+];
 
+const principles = [
+  { number: "01", title: "Raíces sólidas", text: "Código mantenible, documentado y construido para durar." },
+  { number: "02", title: "Crecimiento orgánico", text: "Iteramos junto a tu producto, sin sobreingeniería." },
+  { number: "03", title: "Pensamiento claro", text: "Soluciones simples a problemas complejos. La mente antes que el martillo." },
+];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<meta name="description" content="mind.com.py - coming soon" />
-		<title>mind.com.py</title>
-	</head>
-	<body>
-		<main>
-			<h1>mind.com.py</h1>
-			<p>Site under construction.</p>
-		</main>
-	</body>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <meta
+      name="description"
+      content="MIND — Estudio de desarrollo de software en Paraguay. Construimos productos digitales que crecen con tu visión."
+    />
+    <meta property="og:title" content="MIND — Desarrollo de Software en Paraguay" />
+    <meta
+      property="og:description"
+      content="Estudio de software paraguayo. Web, mobile, cloud y consultoría técnica."
+    />
+    <meta property="og:image" content="/assets/mindpy_logo_prototipo.jpeg" />
+    <title>MIND — Desarrollo de Software en Paraguay</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600&family=Inter:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="nav">
+      <a href="#top" class="nav-brand">
+        <span class="nav-brand-name">MIND</span>
+        <span class="nav-brand-tag">Estudio de software</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#servicios">Servicios</a>
+        <a href="#filosofia">Filosofía</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-mark">
+          <img src="/assets/mindpy_logo_prototipo.jpeg" alt="" aria-hidden="true" />
+        </div>
+        <h1>
+          Cultivamos software<br />
+          <em>que crece con tu visión.</em>
+        </h1>
+        <p class="lead">
+          Diseñamos y construimos productos digitales con raíces firmes y ramas
+          que se extienden hacia donde tu negocio necesita ir.
+        </p>
+        <div class="cta-row">
+          <a href="#contacto" class="btn btn-primary">Conversemos</a>
+          <a href="#servicios" class="btn btn-ghost">Qué hacemos →</a>
+        </div>
+      </section>
+
+      <section id="servicios" class="services">
+        <header class="section-header">
+          <span class="section-tag">Servicios</span>
+          <h2>Lo que hacemos crecer.</h2>
+        </header>
+        <div class="service-grid">
+          {
+            services.map((s) => (
+              <article class="service-card">
+                <h3>{s.title}</h3>
+                <p>{s.description}</p>
+              </article>
+            ))
+          }
+        </div>
+      </section>
+
+      <section id="filosofia" class="philosophy">
+        <header class="section-header">
+          <span class="section-tag">Filosofía</span>
+          <h2>Tres principios que sostienen el árbol.</h2>
+        </header>
+        <ol class="principle-list">
+          {
+            principles.map((p) => (
+              <li>
+                <span class="principle-number">{p.number}</span>
+                <div>
+                  <h3>{p.title}</h3>
+                  <p>{p.text}</p>
+                </div>
+              </li>
+            ))
+          }
+        </ol>
+      </section>
+
+      <section id="contacto" class="contact">
+        <header class="section-header">
+          <span class="section-tag">Contacto</span>
+          <h2>¿Tenés una idea? Plantémosla juntos.</h2>
+        </header>
+        <p class="contact-lead">
+          Escribinos y conversemos sobre tu próximo proyecto. Respondemos en
+          menos de 24 horas hábiles.
+        </p>
+        <a href="mailto:hola@mind.com.py" class="contact-email">hola@mind.com.py</a>
+        <p class="contact-location">Asunción · Paraguay</p>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-inner">
+        <span>© {new Date().getFullYear()} MIND</span>
+        <span class="footer-meta">Hecho con cuidado en Paraguay 🇵🇾</span>
+      </div>
+    </footer>
+
+    <style is:global>
+      :root {
+        --green-trunk: #2d4a3e;
+        --green-deep: #1f3a2e;
+        --green-leaf: #8ab87a;
+        --green-soft: #b8d4a8;
+        --cream: #f5f3ee;
+        --paper: #fefefe;
+        --ink: #1a2520;
+        --ink-soft: #4b5851;
+        --line: rgba(45, 74, 62, 0.12);
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: "Inter", system-ui, sans-serif;
+        font-weight: 300;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-family: "Outfit", system-ui, sans-serif;
+        font-weight: 300;
+        letter-spacing: -0.01em;
+        color: var(--green-deep);
+        margin: 0;
+      }
+
+      h1 em {
+        font-style: normal;
+        color: var(--green-leaf);
+        font-weight: 400;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      /* ---------- NAV ---------- */
+      .nav {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1.25rem clamp(1.5rem, 5vw, 4rem);
+        background: rgba(254, 254, 254, 0.85);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .nav-brand {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        line-height: 1;
+        font-family: "Outfit", sans-serif;
+        color: var(--green-deep);
+      }
+
+      .nav-brand-name {
+        font-weight: 400;
+        letter-spacing: 0.35em;
+        font-size: 1rem;
+      }
+
+      .nav-brand-tag {
+        margin-top: 0.35rem;
+        font-size: 0.65rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--ink-soft);
+        font-weight: 300;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+        font-size: 0.9rem;
+        letter-spacing: 0.04em;
+      }
+
+      .nav-links a {
+        color: var(--ink-soft);
+        transition: color 0.2s ease;
+      }
+
+      .nav-links a:hover {
+        color: var(--green-trunk);
+      }
+
+      @media (max-width: 640px) {
+        .nav-links {
+          display: none;
+        }
+      }
+
+      /* ---------- HERO ---------- */
+      main {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 clamp(1.5rem, 5vw, 4rem);
+      }
+
+      .hero {
+        padding: clamp(4rem, 10vh, 7rem) 0 clamp(5rem, 12vh, 9rem);
+        text-align: center;
+        max-width: 780px;
+        margin: 0 auto;
+      }
+
+      .hero-mark {
+        margin: 0 auto 0.5rem;
+        width: clamp(340px, 55vw, 540px);
+        aspect-ratio: 100 / 73;
+        overflow: hidden;
+      }
+
+      .hero-mark img {
+        width: 100%;
+        height: auto;
+        display: block;
+        opacity: 0.95;
+      }
+
+      .eyebrow {
+        font-family: "Outfit", sans-serif;
+        font-size: 0.8rem;
+        letter-spacing: 0.4em;
+        text-transform: uppercase;
+        color: var(--green-trunk);
+        margin: 0 0 1.5rem;
+      }
+
+      h1 {
+        font-size: clamp(2.5rem, 6vw, 4.25rem);
+        line-height: 1.1;
+        margin-bottom: 1.75rem;
+      }
+
+      .lead {
+        font-size: clamp(1.05rem, 1.5vw, 1.2rem);
+        color: var(--ink-soft);
+        max-width: 560px;
+        margin: 0 auto 2.5rem;
+      }
+
+      .cta-row {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        font-family: "Outfit", sans-serif;
+        font-size: 0.95rem;
+        letter-spacing: 0.05em;
+        padding: 0.85rem 1.6rem;
+        border-radius: 999px;
+        transition: all 0.25s ease;
+        border: 1px solid transparent;
+      }
+
+      .btn-primary {
+        background: var(--green-trunk);
+        color: var(--paper);
+      }
+
+      .btn-primary:hover {
+        background: var(--green-deep);
+        transform: translateY(-1px);
+      }
+
+      .btn-ghost {
+        color: var(--green-trunk);
+        border-color: var(--line);
+      }
+
+      .btn-ghost:hover {
+        border-color: var(--green-trunk);
+      }
+
+      /* ---------- SECTION HEADERS ---------- */
+      .section-header {
+        margin-bottom: 3rem;
+        max-width: 640px;
+      }
+
+      .section-tag {
+        display: inline-block;
+        font-family: "Outfit", sans-serif;
+        font-size: 0.75rem;
+        letter-spacing: 0.35em;
+        text-transform: uppercase;
+        color: var(--green-leaf);
+        margin-bottom: 1rem;
+      }
+
+      .section-header h2 {
+        font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+        line-height: 1.2;
+      }
+
+      /* ---------- SERVICES ---------- */
+      .services {
+        padding: clamp(4rem, 8vh, 6rem) 0;
+        border-top: 1px solid var(--line);
+      }
+
+      .service-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 1px;
+        background: var(--line);
+        border: 1px solid var(--line);
+      }
+
+      .service-card {
+        background: var(--paper);
+        padding: 2rem 1.75rem;
+        transition: background 0.25s ease;
+      }
+
+      .service-card:hover {
+        background: var(--cream);
+      }
+
+      .service-card h3 {
+        font-size: 1.25rem;
+        font-weight: 400;
+        margin-bottom: 0.75rem;
+      }
+
+      .service-card p {
+        margin: 0;
+        color: var(--ink-soft);
+        font-size: 0.95rem;
+      }
+
+      /* ---------- PHILOSOPHY ---------- */
+      .philosophy {
+        padding: clamp(4rem, 8vh, 6rem) 0;
+        border-top: 1px solid var(--line);
+      }
+
+      .principle-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        gap: 2rem;
+      }
+
+      .principle-list li {
+        display: grid;
+        grid-template-columns: 4rem 1fr;
+        gap: 1.5rem;
+        padding: 1.5rem 0;
+        border-top: 1px solid var(--line);
+        align-items: start;
+      }
+
+      .principle-number {
+        font-family: "Outfit", sans-serif;
+        font-size: 1rem;
+        font-weight: 300;
+        color: var(--green-leaf);
+        letter-spacing: 0.15em;
+      }
+
+      .principle-list h3 {
+        font-size: 1.4rem;
+        font-weight: 400;
+        margin-bottom: 0.4rem;
+      }
+
+      .principle-list p {
+        margin: 0;
+        color: var(--ink-soft);
+      }
+
+      /* ---------- CONTACT ---------- */
+      .contact {
+        padding: clamp(5rem, 10vh, 8rem) 0;
+        border-top: 1px solid var(--line);
+        text-align: center;
+      }
+
+      .contact .section-header {
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+      }
+
+      .contact-lead {
+        max-width: 480px;
+        margin: 0 auto 2.5rem;
+        color: var(--ink-soft);
+      }
+
+      .contact-email {
+        display: inline-block;
+        font-family: "Outfit", sans-serif;
+        font-size: clamp(1.5rem, 3vw, 2rem);
+        font-weight: 300;
+        color: var(--green-trunk);
+        border-bottom: 1px solid var(--green-soft);
+        padding-bottom: 0.25rem;
+        transition: color 0.2s ease, border-color 0.2s ease;
+      }
+
+      .contact-email:hover {
+        color: var(--green-leaf);
+        border-color: var(--green-leaf);
+      }
+
+      .contact-location {
+        margin-top: 2rem;
+        font-size: 0.85rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--ink-soft);
+      }
+
+      /* ---------- FOOTER ---------- */
+      footer {
+        border-top: 1px solid var(--line);
+        margin-top: 4rem;
+      }
+
+      .footer-inner {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 2rem clamp(1.5rem, 5vw, 4rem);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 0.85rem;
+        color: var(--ink-soft);
+        flex-wrap: wrap;
+        gap: 0.75rem;
+      }
+
+      .footer-meta {
+        font-family: "Outfit", sans-serif;
+        letter-spacing: 0.05em;
+      }
+    </style>
+  </body>
 </html>
-
-<style>
-	html, body {
-		margin: 0;
-		padding: 0;
-		height: 100%;
-		font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-		background-color: #0f172a;
-		color: #e2e8f0;
-	}
-
-	main {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-		min-height: 100vh;
-		text-align: center;
-		padding: 2rem;
-	}
-
-	h1 {
-		font-size: 3rem;
-		font-weight: 700;
-		margin-bottom: 0.5rem;
-		color: #f8fafc;
-	}
-
-	p {
-		font-size: 1.25rem;
-		color: #94a3b8;
-	}
-</style>
