@@ -47,4 +47,4 @@ The site is automatically deployed to GitHub Pages on every push to `master` via
 3. Add a custom domain `mind.com.py` under **Custom domain** and enable **Enforce HTTPS**
 4. Configure DNS with your provider:
    - `A` records pointing to GitHub Pages IPs (see [GitHub docs](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site))
-   - `CNAME` record for `www` pointing to `simple-solutions-py.github.io`
+   - `CNAME` record for `www` pointing to `mind-com-py.github.io`
